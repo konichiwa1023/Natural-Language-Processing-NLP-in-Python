@@ -1,0 +1,7 @@
+import string
+
+filtered_tokens = ['reached', 'support', 'got', 'helpful', 'response', 'within', 'minutes', '!', '!', '!', '#', 'impressed']
+
+# Remove punctuation
+clean_tokens = [word for word in filtered_tokens if word not in string.punctuation]
+print(clean_tokens)
