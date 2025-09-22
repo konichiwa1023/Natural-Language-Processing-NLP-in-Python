@@ -1,0 +1,5 @@
+# Transform the reviews
+bow_matrix = vectorizer.transform(cleaned_reviews)
+
+# Print the BoW representation
+print(bow_matrix.toarray())
