@@ -1,0 +1,15 @@
+import matplotlib.pyplot as plt
+# Plot the frequencies with stop words
+plt.bar(top_words_with_stopwords, top_counts_with_stopwords)
+plt.title("Top 10 word frequencies (with stop words)")
+plt.xlabel("Words")
+plt.ylabel("Frequency")
+plt.show()
+
+# Plot the frequencies without stop words
+plt.figure()
+plt.bar(top_words_without_stopwords, top_counts_without_stopwords)
+plt.title("Top 10 word frequencies (without stop words)")
+plt.xlabel("Words")
+plt.ylabel("Frequency")
+plt.show()
