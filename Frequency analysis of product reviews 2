@@ -1,0 +1,18 @@
+# Modify the function to remove stop words 
+def preprocess(text):
+    text = text.lower()
+    tokens = word_tokenize(text)
+    tokens = [word for word in tokens if word not in string.punctuation]
+    tokens = [word for word in tokens if word not in stop_words]
+    return " ".join(tokens)
+  
+cleaned_reviews = [preprocess(review) for review in product_reviews]
+X = vectorizer.fit_transform(cleaned_reviews)
+
+# Get word counts
+word_counts = np.sum(X.toarray(), axis=0)
+# Get words
+words = vectorizer.get_feature_names_out()
+
+top_words_without_stopwords, top_counts_without_stopwords = get_top_ten(words, word_counts)
+print(top_words_without_stopwords, top_counts_without_stopwords)
