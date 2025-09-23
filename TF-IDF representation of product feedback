@@ -1,0 +1,15 @@
+reviews = ["The smart speaker is incredible. Clear sound and fast responses!",
+           "I am disappointed with the smart bulb. It stopped working in a week.",
+           "The thermostat is okay. Not too smart, but functional."]
+cleaned_reviews = [preprocess(review) for review in reviews]
+
+# Initialize the vectorizer
+vectorizer = TfidfVectorizer()
+# Transform the cleaned reviews
+tfidf_matrix = vectorizer.fit_transform(cleaned_reviews)
+# Create a DataFrame for TF-IDF
+df = pd.DataFrame(
+  tfidf_matrix.toarray(),
+  columns=vectorizer.get_feature_names_out()
+)
+print(df.head())
