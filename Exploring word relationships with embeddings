@@ -1,0 +1,8 @@
+# Compute similarity between "king" and "queen"
+similarity_score = model_glove_wiki.similarity("king", "queen")
+
+print(similarity_score)
+
+# Get top 10 most similar words to "computer"
+similar_words = model_glove_wiki.most_similar("computer", topn=10)
+print(similar_words)
