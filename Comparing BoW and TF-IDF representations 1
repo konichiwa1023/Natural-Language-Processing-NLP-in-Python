@@ -1,0 +1,14 @@
+# Convert BoW matrix to a DataFrame
+df_bow = pd.DataFrame(
+    bow_matrix.toarray(),
+    columns=vectorizer.get_feature_names_out()
+)
+
+# Plot the heatmap
+plt.figure(figsize=(10, 6))
+sns.heatmap(df_bow, annot=True)
+plt.title("BoW Scores Across Reviews")
+plt.xlabel("Terms")
+plt.xticks(rotation=45)
+plt.ylabel("Documents")
+plt.show()
