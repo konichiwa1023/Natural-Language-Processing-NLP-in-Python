@@ -1,0 +1,14 @@
+# Convert TF-IDF matrix to a DataFrame
+df_tfidf = pd.DataFrame(
+    tfidf_matrix.toarray(),
+    columns=vectorizer.get_feature_names_out()
+)
+
+# Plot the heatmap
+plt.figure(figsize=(10, 6))
+sns.heatmap(df_tfidf, annot=True)
+plt.title("TF-IDF Scores Across Reviews")
+plt.xlabel("Terms")
+plt.xticks(rotation=45)
+plt.ylabel("Documents")
+plt.show()
