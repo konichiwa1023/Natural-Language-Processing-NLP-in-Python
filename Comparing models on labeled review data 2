@@ -1,0 +1,15 @@
+from transformers import pipeline
+from sklearn.metrics import accuracy_score
+# Load sentiment analysis models
+pipe_a = pipeline(task="sentiment-analysis", model="distilbert-base-uncased-finetuned-sst-2-english")
+pipe_b = pipeline(task="sentiment-analysis", model="abilfad/sentiment-binary-dicoding")
+
+# Generate predictions
+preds_a = [res["label"] for res in pipe_a(texts)]
+preds_b = [res["label"] for res in pipe_b(texts)]
+
+# Evaluate accuracies
+acc_a = accuracy_score(true_labels, preds_a)
+acc_b = accuracy_score(true_labels, preds_b)
+print(f"Accuracy - Model A: {acc_a:.2f}")
+print(f"Accuracy - Model B: {acc_b:.2f}")
