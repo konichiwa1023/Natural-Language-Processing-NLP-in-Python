@@ -1,0 +1,9 @@
+from transformers import pipeline
+from sklearn.metrics import accuracy_score
+# Load sentiment analysis models
+pipe_a = pipeline(task="sentiment-analysis", model="distilbert-base-uncased-finetuned-sst-2-english")
+pipe_b = pipeline(task="sentiment-analysis", model="abilfad/sentiment-binary-dicoding")
+
+# Generate predictions
+preds_a = [res["label"] for res in pipe_a(texts)]
+preds_b = [res["label"] for res in pipe_b(texts)]
