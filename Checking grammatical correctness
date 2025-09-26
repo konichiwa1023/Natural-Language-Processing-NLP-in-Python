@@ -1,0 +1,11 @@
+from transformers import pipeline
+
+# Initialize the pipeline
+classifier = pipeline(task="text-classification", model="textattack/bert-base-uncased-CoLA")
+
+user_text = "Although she was knowing the answer, she didn't raised her hand during the class discussion."
+
+# Classify grammatical acceptability
+result = classifier(user_text)
+
+print(result)
