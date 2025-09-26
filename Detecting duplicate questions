@@ -1,0 +1,15 @@
+from transformers import pipeline
+
+# Initialize the pipeline
+classifier = pipeline(task="text-classification", model="textattack/distilbert-base-uncased-QQP")
+
+question_1 = "What's the process to change my password?"
+question_2 = "How do I reset my account password?"
+
+# Detect if the two questions are paraphrases
+result = classifier({
+    "text": question_1,
+    "text_pair": question_2
+})
+
+print(result)
