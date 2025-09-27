@@ -1,0 +1,14 @@
+from transformers import pipeline
+# Create the NER pipeline
+ner_pipeline = pipeline(
+    task="ner",
+    model="dslim/bert-base-NER",
+    grouped_entities=True
+)
+headline = "Apple is planning to open a new office in San Francisco next year."
+
+# Get named entities
+entities = ner_pipeline(headline)
+
+for entity in entities:
+    print(f"{entity['entity_group']}: {entity['word']}")
