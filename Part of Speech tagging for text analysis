@@ -1,0 +1,14 @@
+from transformers import pipeline
+# Create the PoS tagging pipeline
+pos_pipeline = pipeline(
+    task="token-classification",
+    model="vblagoje/bert-english-uncased-finetuned-pos",
+    grouped_entities=True
+)
+
+sentence = "I am meeting my friends for coffee this afternoon."
+
+# Get PoS tags
+pos_tags = pos_pipeline(sentence)
+for token in pos_tags:
+    print(f"{token['word']}: {token['entity_group']}")
