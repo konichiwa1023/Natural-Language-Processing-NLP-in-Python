@@ -1,0 +1,10 @@
+from transformers import pipeline
+
+# Create the summarization pipeline
+summarizer = pipeline(task="summarization", model="cnicu/t5-small-booksum")
+article = """NASA's Perseverance rover has successfully collected its first rock samples from Mars, marking a significant milestone in the mission. The samples will be stored for potential return to Earth in the future, providing valuable insight into the planet's geology and potential signs of past microbial life."""
+
+# Generate the summary
+summary = summarizer(article)
+
+print(summary)
