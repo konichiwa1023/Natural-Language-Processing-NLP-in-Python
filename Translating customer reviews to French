@@ -1,0 +1,9 @@
+from transformers import pipeline
+
+# Create the translation pipeline
+translator = pipeline(task="translation", model="Helsinki-NLP/opus-mt-en-fr")
+review = "The hotel was clean and the staff were very friendly."
+
+# Translate the review
+translation = translator(review)
+print(translation)
